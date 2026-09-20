@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Able & Beyond | Specialist SEN Support</title>
+    
+    <!-- OpenGraph Metadata -->
+    <meta property="og:title" content="Able & Beyond | Specialist SEN Support">
+    <meta property="og:description" content="Personalised 1-to-1 and small-group mentoring for neurodiverse young people. Building confidence, essential life skills, and independence at home, in schools, and across the community.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ableandbeyond.support/">
+    <meta property="og:image" content="https://ableandbeyond.support/og-image.jpg">
+    
+    <!-- Google Fonts (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            bg: '#FBFBF9',        // Warm non-glare off-white
+                            text: '#2D3748',      // Soft dark slate (no harsh black)
+                            primary: '#059669',   // Warm Emerald
+                            primaryHover: '#047857',
+                            secondary: '#4F46E5', // Indigo
+                            surface: '#FFFFFF',
+                            border: '#E2E8F0'
+                        }
+                    },
+                    lineHeight: {
+                        'accessible': '1.65',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FBFBF9;
+            color: #2D3748;
+            line-height: 1.65;
+        }
+        .glass-header {
+            background: rgba(251, 251, 249, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-brand-text bg-brand-bg leading-accessible selection:bg-brand-primary selection:text-white">
+
+    <!-- Sticky Glassmorphism Header -->
+    <header class="fixed top-0 w-full z-50 glass-header border-b border-brand-border transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Left: Brand -->
+                <div class="flex items-center gap-3">
+                    <a href="#" class="text-2xl font-bold tracking-tight text-gray-900 hover:opacity-80 transition-opacity" aria-label="Able & Beyond Home">
+                        Able & Beyond
+                    </a>
+                    <span class="hidden md:inline-flex items-center rounded-full bg-emerald-50 px-2.5 py-0.5 text-xs font-medium text-emerald-700 ring-1 ring-inset ring-emerald-600/20">
+                        Specialist SEN Support
+                    </span>
+                </div>
+
+                <!-- Center: Navigation (Desktop) -->
+                <nav class="hidden lg:flex gap-8" aria-label="Main Navigation">
+                    <a href="#families" class="text-sm font-medium text-gray-600 hover:text-brand-primary transition-colors">For Families</a>
+                    <a href="#schools" class="text-sm font-medium text-gray-600 hover:text-brand-primary transition-colors">For Schools</a>
+                    <a href="#innovation" class="text-sm font-medium text-gray-600 hover:text-brand-primary transition-colors">Learning Lab</a>
+                    <a href="#approach" class="text-sm font-medium text-gray-600 hover:text-brand-primary transition-colors">Approach</a>
+                    <a href="#safeguarding" class="text-sm font-medium text-gray-600 hover:text-brand-primary transition-colors">Safeguarding</a>
+                </nav>
+
+                <!-- Right: CTAs -->
+                <div class="hidden lg:flex items-center gap-4">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeitbh6TzyA50891hIRq8SYWiUo3tAS9rc0i27IHeiU-NNxcw/viewform?pli=1" target="_blank" rel="noopener noreferrer" class="text-sm font-medium px-4 py-2 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors focus:ring-2 focus:ring-brand-primary focus:outline-none">
+                        Ready to Refer
+                    </a>
+                    <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2vunPwWalznFpmqurXQzEWQmD0lFjx88Pa1DewnAWuXCPDDRYS3bi2D1J_SI5pLnIP-ckYKb8L" target="_blank" rel="noopener noreferrer" class="text-sm font-medium px-5 py-2.5 rounded-lg bg-brand-primary text-white hover:bg-brand-primaryHover transition-colors shadow-sm focus:ring-2 focus:ring-offset-2 focus:ring-brand-primary focus:outline-none">
+                        Book Consultation
+                    </a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden flex items-center">
+                    <button type="button" id="mobile-menu-btn" class="p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-brand-primary" aria-expanded="false" aria-controls="mobile-menu">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div class="lg:hidden hidden bg-white border-t border-gray-100 shadow-lg absolute w-full" id="mobile-menu">
+            <div class="space-y-1 px-4 pb-6 pt-2">
+                <a href="#families" class="block rounded-md px-3 py-2.5 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-brand-primary">For Families</a>
+                <a href="#schools" class="block rounded-md px-3 py-2.5 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-brand-primary">For Schools</a>
+                <a href="#innovation" class="block rounded-md px-3 py-2.5 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-brand-primary">Learning Lab</a>
+                <a href="#approach" class="block rounded-md px-3 py-2.5 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-brand-primary">Approach</a>
+                <a href="#safeguarding" class="block rounded-md px-3 py-2.5 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-brand-primary">Safeguarding</a>
+                <div class="mt-4 pt-4 border-t border-gray-100 flex flex-col gap-3">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeitbh6TzyA50891hIRq8SYWiUo3tAS9rc0i27IHeiU-NNxcw/viewform?pli=1" target="_blank" rel="noopener noreferrer" class="w-full text-center text-sm font-medium px-4 py-2.5 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors">Ready to Refer</a>
+                    <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2vunPwWalznFpmqurXQzEWQmD0lFjx88Pa1DewnAWuXCPDDRYS3bi2D1J_SI5pLnIP-ckYKb8L" target="_blank" rel="noopener noreferrer" class="w-full text-center text-sm font-medium px-5 py-2.5 rounded-lg bg-brand-primary text-white hover:bg-brand-primaryHover transition-colors shadow-sm">Book Consultation</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-24 lg:pt-32">
+        <!-- 60/40 Split Hero Section -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                
+                <!-- Left (60%) -->
+                <div class="lg:col-span-7 space-y-8">
+                    <div class="inline-flex items-center rounded-full bg-white px-4 py-1.5 text-sm font-medium text-brand-text ring-1 ring-inset ring-gray-200 shadow-sm">
+                        <span class="mr-2 text-brand-primary">✦</span> Specialist SEND Provision · London & Online
+                    </div>
+                    
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 tracking-tight leading-tight">
+                        Specialist SEN support built around your child — <span class="text-brand-primary">not the other way around.</span>
+                    </h1>
+                    
+                    <p class="text-lg sm:text-xl text-gray-700 max-w-2xl leading-accessible">
+                        Personalised 1-to-1 and small-group mentoring for neurodiverse young people. Building confidence, essential life skills, and independence at home, in schools, and across the community.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-5 pt-4">
+                        <div class="flex flex-col gap-2">
+                            <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2vunPwWalznFpmqurXQzEWQmD0lFjx88Pa1DewnAWuXCPDDRYS3bi2D1J_SI5pLnIP-ckYKb8L" target="_blank" rel="noopener noreferrer" class="inline-flex justify-center items-center px-6 py-3.5 rounded-xl bg-brand-primary text-white font-semibold hover:bg-brand-primaryHover transition-all shadow-md hover:shadow-lg focus:ring-2 focus:ring-offset-2 focus:ring-brand-primary focus:outline-none">
+                                Book a Free Consultation
+                            </a>
+                            <span class="text-xs text-gray-600 text-center sm:text-left ml-1">(No commitment)</span>
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeitbh6TzyA50891hIRq8SYWiUo3tAS9rc0i27IHeiU-NNxcw/viewform?pli=1" target="_blank" rel="noopener noreferrer" class="inline-flex justify-center items-center px-6 py-3.5 rounded-xl bg-white border-2 border-gray-200 text-gray-700 font-semibold hover:border-gray-300 hover:bg-gray-50 transition-all focus:ring-2 focus:ring-offset-2 focus:ring-gray-200 focus:outline-none">
+                                Ready to Refer
+                            </a>
+                            <span class="text-xs text-gray-600 text-center sm:text-left ml-1">(Schools & LAs)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right (40%) -->
+                <div class="lg:col-span-5 relative">
+                    <!-- Decorative subtle background -->
+                    <div class="absolute -inset-4 bg-emerald-50 rounded-3xl blur-2xl opacity-50" aria-hidden="true"></div>
+                    
+                    <div class="relative bg-white rounded-2xl shadow-soft border border-gray-100 p-8 lg:p-10">
+                        <h2 class="text-xl font-bold text-gray-900 mb-6 border-b border-gray-100 pb-4">Trusted Standards</h2>
+                        <ul class="space-y-6">
+                            <li class="flex items-start gap-4">
+                                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-xl" aria-hidden="true">🛡️</div>
+                                <div>
+                                    <p class="font-semibold text-gray-900">Enhanced DBS Checked & KCSIE Compliant</p>
+                                    <p class="text-sm text-gray-600 mt-1">Rigorous safer recruitment standards.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-50 flex items-center justify-center text-xl" aria-hidden="true">🌱</div>
+                                <div>
+                                    <p class="font-semibold text-gray-900">14+ Years Specialized SEN Leadership</p>
+                                    <p class="text-sm text-gray-600 mt-1">Deep expertise in specialised education.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-purple-50 flex items-center justify-center text-xl" aria-hidden="true">📋</div>
+                                <div>
+                                    <p class="font-semibold text-gray-900">Fully Aligned with EHCP & SEMH Frameworks</p>
+                                    <p class="text-sm text-gray-600 mt-1">Statutory adherence and targeted outcomes.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-amber-50 flex items-center justify-center text-xl" aria-hidden="true">🧩</div>
+                                <div>
+                                    <p class="font-semibold text-gray-900">PDA, Autism, ADHD & Neurodivergent Profiles</p>
+                                    <p class="text-sm text-gray-600 mt-1">Neuro-affirming, individualised approach.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Audience Pathway (Split Two-Column Grid) -->
+        <section id="pathways" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-bold text-gray-900">Tailored Support Pathways</h2>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Column 1: Families -->
+                    <div id="families" class="bg-[#FFFDF9] rounded-2xl p-8 lg:p-12 shadow-sm border border-orange-100 flex flex-col h-full hover:shadow-md transition-shadow">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">For Families & Carers</h3>
+                        <p class="text-gray-700 mb-6 flex-grow leading-accessible">
+                            We provide a warm, reassuring environment where your child can thrive. Experience a low-pressure assessment process, moving at a tailored pace that respects their needs. Whether in the comfort of your home or out in the community, our goal is building daily independence, confidence, and essential life skills.
+                        </p>
+                        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2vunPwWalznFpmqurXQzEWQmD0lFjx88Pa1DewnAWuXCPDDRYS3bi2D1J_SI5pLnIP-ckYKb8L" target="_blank" rel="noopener noreferrer" class="inline-flex justify-center items-center px-6 py-3.5 rounded-xl bg-gray-800 text-white font-semibold hover:bg-gray-900 transition-colors w-full sm:w-auto shadow-sm">
+                            Book a Free Consultation
+                        </a>
+                    </div>
+
+                    <!-- Column 2: Schools -->
+                    <div id="schools" class="bg-[#F8FAFC] rounded-2xl p-8 lg:p-12 shadow-sm border border-slate-200 flex flex-col h-full hover:shadow-md transition-shadow">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">For Schools, SENCOs & Local Authorities</h3>
+                        <p class="text-gray-700 mb-6 flex-grow leading-accessible">
+                            Structured, institutional aesthetic tailored for educational bodies. Benefit from fast onboarding, strict statutory adherence, and seamless multi-agency communication. We provide transparent progress tracking and comprehensive reporting aligned precisely with EHCP outcomes.
+                        </p>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeitbh6TzyA50891hIRq8SYWiUo3tAS9rc0i27IHeiU-NNxcw/viewform?pli=1" target="_blank" rel="noopener noreferrer" class="inline-flex justify-center items-center px-6 py-3.5 rounded-xl bg-brand-secondary text-white font-semibold hover:bg-indigo-700 transition-colors w-full sm:w-auto shadow-sm">
+                            Submit a Referral
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Innovation & Resources (3-Card Bento Grid) -->
+        <section id="innovation" class="py-20 bg-gray-50/50 border-y border-gray-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-bold text-gray-900">Innovation & Resources</h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+                    
+                    <!-- Card 1: Learning Lab -->
+                    <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 flex flex-col hover:-translate-y-1 transition-transform duration-300">
+                        <div class="text-4xl mb-4" aria-hidden="true">🎮</div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Able & Beyond Learning Lab</h3>
+                        <p class="text-gray-600 mb-6 flex-grow leading-accessible">
+                            Free interactive tools and games engineered specifically for neurodiverse learners. Used effectively in live sessions and accessible at home anytime.
+                        </p>
+                        <a href="https://ableandbeyond.github.io/able-beyond-games/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-brand-primary font-semibold hover:text-brand-primaryHover group">
+                            Explore the Learning Lab 
+                            <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                        </a>
+                    </div>
+
+                    <!-- Card 2: Report Generator -->
+                    <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 flex flex-col relative overflow-hidden hover:-translate-y-1 transition-transform duration-300">
+                        <div class="absolute top-0 right-0 bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1 rounded-bl-lg">Launching Spring 2026</div>
+                        <div class="text-4xl mb-4" aria-hidden="true">🆕</div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">EHCP Report Generator</h3>
+                        <p class="text-gray-600 mb-6 flex-grow leading-accessible">
+                            Cut EHCP report writing from 3 hours to 3 minutes. Built by specialist educators to turn session notes into clean, LA-ready reports instantly.
+                        </p>
+                        <a href="mailto:admin@ableandbeyond.support" class="inline-flex items-center text-blue-600 font-semibold hover:text-blue-700 group">
+                            Request Early Access
+                            <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                        </a>
+                    </div>
+
+                    <!-- Card 3: Publications -->
+                    <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 flex flex-col hover:-translate-y-1 transition-transform duration-300">
+                        <div class="text-4xl mb-4" aria-hidden="true">📖</div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Practical SEND Publications</h3>
+                        <p class="text-gray-600 mb-6 flex-grow leading-accessible">
+                            Classroom-tested guides and real-world strategies designed for PDA, sensory needs, and broadly supporting neurodivergence in any setting.
+                        </p>
+                        <a href="https://ablebeyond.gumroad.com/l/jmcjoo" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-purple-600 font-semibold hover:text-purple-700 group">
+                            Browse Publications
+                            <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 3-Step Journey -->
+        <section id="approach" class="py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-bold text-gray-900">How We Work</h2>
+                </div>
+
+                <div class="relative">
+                    <!-- Connecting line (desktop only) -->
+                    <div class="hidden md:block absolute top-12 left-0 w-full h-0.5 bg-gray-100" aria-hidden="true"></div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                        <!-- Step 1 -->
+                        <div class="relative text-center">
+                            <div class="w-24 h-24 mx-auto bg-white border-4 border-gray-100 text-brand-primary rounded-full flex items-center justify-center text-3xl font-bold mb-6 shadow-sm z-10 relative">
+                                1
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">Informal Discovery</h3>
+                            <p class="text-gray-600 leading-accessible">
+                                A free conversation to map strengths, understand unique sensory profiles, and establish meaningful goals without pressure.
+                            </p>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="relative text-center">
+                            <div class="w-24 h-24 mx-auto bg-white border-4 border-gray-100 text-brand-primary rounded-full flex items-center justify-center text-3xl font-bold mb-6 shadow-sm z-10 relative">
+                                2
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">Thoughtful Matching</h3>
+                            <p class="text-gray-600 leading-accessible">
+                                We carefully pair young people with enhanced DBS-cleared, deeply experienced SEND educators suited to their specific needs.
+                            </p>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="relative text-center">
+                            <div class="w-24 h-24 mx-auto bg-brand-primary border-4 border-brand-primary text-white rounded-full flex items-center justify-center text-3xl font-bold mb-6 shadow-sm z-10 relative">
+                                3
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">Consistent Growth</h3>
+                            <p class="text-gray-600 leading-accessible">
+                                Ongoing provision delivered seamlessly at home, school, or online, accompanied by structured feedback and progress updates.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Safeguarding & Quality Assurance Grid -->
+        <section id="safeguarding" class="py-20 bg-[#F4F9FF]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-white rounded-3xl shadow-sm border border-blue-100 overflow-hidden">
+                    <div class="grid grid-cols-1 md:grid-cols-2">
+                        <div class="p-10 lg:p-14 flex flex-col justify-center">
+                            <h2 class="text-3xl font-bold text-gray-900 mb-4">Safeguarding & Quality Assurance</h2>
+                            <p class="text-gray-700 leading-accessible mb-6">
+                                The safety and wellbeing of every young person is our absolute priority. We maintain a steadfast commitment to the highest statutory frameworks and rigorous quality control.
+                            </p>
+                            <div class="space-y-4">
+                                <p class="text-sm text-gray-600 font-medium">Fully compliant with:</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-200">KCSIE</span>
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-200">Children Act 1989 & 2004</span>
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-200">Working Together to Safeguard Children</span>
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-200">GDPR</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-blue-50/50 p-10 lg:p-14 flex flex-col justify-center border-t md:border-t-0 md:border-l border-blue-100">
+                            <h3 class="text-xl font-bold text-gray-900 mb-6">Our Commitments</h3>
+                            <ul class="space-y-5">
+                                <li class="flex items-start gap-3">
+                                    <svg class="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                    <span class="text-gray-700 leading-accessible">Strict safer recruitment standards and ongoing vetting.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <svg class="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                    <span class="text-gray-700 leading-accessible">Active leadership oversight and continuous professional development for all staff.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <svg class="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                    <span class="text-gray-700 leading-accessible">Transparent reporting and clear lines of communication with local authorities and designated safeguarding leads.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <!-- Brand & Contact -->
+                <div class="col-span-1 md:col-span-2">
+                    <span class="text-2xl font-bold tracking-tight text-gray-900 block mb-4">Able & Beyond</span>
+                    <div class="space-y-4">
+                        <a href="mailto:admin@ableandbeyond.support" class="flex items-center gap-3 text-gray-600 hover:text-brand-primary transition-colors">
+                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                            admin@ableandbeyond.support
+                        </a>
+                        <a href="tel:+447936433264" class="flex items-center gap-3 text-gray-600 hover:text-brand-primary transition-colors">
+                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                            +44 7936 433264
+                        </a>
+                        <div class="flex items-center gap-3 text-gray-600">
+                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                            London, UK
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-bold text-gray-900 mb-4">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#families" class="text-gray-600 hover:text-brand-primary transition-colors">For Families</a></li>
+                        <li><a href="#schools" class="text-gray-600 hover:text-brand-primary transition-colors">For Schools</a></li>
+                        <li><a href="https://ableandbeyond.github.io/able-beyond-games/" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-brand-primary transition-colors">Learning Lab</a></li>
+                        <li><a href="https://ablebeyond.gumroad.com/l/jmcjoo" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-brand-primary transition-colors">Publications</a></li>
+                        <li><a href="#approach" class="text-gray-600 hover:text-brand-primary transition-colors">Our Approach</a></li>
+                    </ul>
+                </div>
+
+                <!-- Action -->
+                <div>
+                    <h4 class="font-bold text-gray-900 mb-4">Take Action</h4>
+                    <ul class="space-y-3">
+                        <li><a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2vunPwWalznFpmqurXQzEWQmD0lFjx88Pa1DewnAWuXCPDDRYS3bi2D1J_SI5pLnIP-ckYKb8L" target="_blank" rel="noopener noreferrer" class="text-brand-primary font-medium hover:underline">Book Consultation</a></li>
+                        <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeitbh6TzyA50891hIRq8SYWiUo3tAS9rc0i27IHeiU-NNxcw/viewform?pli=1" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-brand-primary transition-colors">Make a Referral</a></li>
+                        <li class="pt-4 mt-4 border-t border-gray-100">
+                            <a href="https://admin.google.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-sm text-gray-400 hover:text-gray-600 transition-colors" title="Staff Portal">
+                                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                                Staff Login
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-200 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
+                <p>&copy; 2026 Able & Beyond. All rights reserved.</p>
+                <p class="text-center md:text-right">Committed to safeguarding and promoting the welfare of children and young people.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Vanilla JS for Mobile Menu Toggle -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+
+            if (btn && menu) {
+                btn.addEventListener('click', () => {
+                    const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+                    btn.setAttribute('aria-expanded', !isExpanded);
+                    menu.classList.toggle('hidden');
+                });
+
+                // Close menu when clicking a link
+                const links = menu.querySelectorAll('a');
+                links.forEach(link => {
+                    link.addEventListener('click', () => {
+                        menu.classList.add('hidden');
+                        btn.setAttribute('aria-expanded', 'false');
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>
